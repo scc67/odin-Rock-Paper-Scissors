@@ -33,6 +33,8 @@ let humanScore = 0;
 let computerScore = 0;
 //Create a function named playRound with the parameters humanChoic and computerChoice
 function playRound(humanChoice, computerChoice) {
+    //Check who won and console.log You lose! Paper beats Rock!
+    //increment humanScore or computerScore based on the round winner
     if (humanChoice == computerChoice) {
         console.log(`There's no winner! ${humanChoice} is ${computerChoice}`);
     } 
@@ -70,7 +72,5 @@ function playRound(humanChoice, computerChoice) {
     console.log(computerScore);
 }
 playRound(humanSelection, computerSelection)
-    //Check who won and console.log You lose! Paper beats Rock!
-    //increment humanScore or computerScore based on the round winner
 //Create function PlayGame named playGame with no parameters
     //Play five rounds
