@@ -23,10 +23,6 @@ function getComputerChoice() {
     }
 };
 
-//Put choice in variable humanSelection
-let humanSelection = getHumanChoice();
-//put choice in variable computerSelection
-let computerSelection = getComputerChoice();
 //Create variable with name humanScore white initial value of 0 of type number
 let humanScore = 0;
 //Create variable with name computerScore white initial value of 0 of type number
@@ -68,9 +64,26 @@ function playRound(humanChoice, computerChoice) {
             computerScore++;
         }
     }
-    console.log(humanScore);
-    console.log(computerScore);
 }
-playRound(humanSelection, computerSelection)
+
 //Create function PlayGame named playGame with no parameters
+function playGame() {
     //Play five rounds
+    for (let i=0; i < 5; i++) {
+        //Put choice in variable humanSelection
+        let humanSelection = getHumanChoice();
+        //put choice in variable computerSelection
+        let computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+        console.log(`You: ${humanScore} - Computer: ${computerScore}`);
+    };
+    if (humanScore > computerScore){
+        console.log(`You are the winner with You: ${humanScore} - Computer: ${computerScore}`);
+    } else if (humanScore < computerScore){
+        console.log(`The computer wins with You: ${humanScore} - Computer: ${computerScore}`);
+    } else {
+        console.log(`There is no winner: ${humanScore} - Computer: ${computerScore}`);
+    }
+}
+ 
+playGame();
