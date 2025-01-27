@@ -67,7 +67,7 @@ function playRound(humanChoice, computerChoice) {
 }
 
 //Create function PlayGame named playGame with no parameters
-function playGame() {
+/* function playGame() {
     //Play five rounds
     for (let i=0; i < 5; i++) {
         //Put choice in variable humanSelection
@@ -86,4 +86,4 @@ function playGame() {
     }
 }
  
-playGame();
+playGame(); */
