@@ -1,3 +1,8 @@
+const result = document.querySelector(".result");
+const score = document.querySelector(".score");
+const win = document.querySelector(".win");
+
+
 //Create a function with no parameters named getHumanChoice that gets user choice
 function getHumanChoice() {
     //Display question of choice, Rock, Paper or Scissers make case insensitive
@@ -27,44 +32,64 @@ function getComputerChoice() {
 let humanScore = 0;
 //Create variable with name computerScore white initial value of 0 of type number
 let computerScore = 0;
-//Create a function named playRound with the parameters humanChoic and computerChoice
+//Create a function named playRound with the parameters humanChoice and computerChoice
 function playRound(humanChoice, computerChoice) {
     //Check who won and console.log You lose! Paper beats Rock!
     //increment humanScore or computerScore based on the round winner
     if (humanChoice == computerChoice) {
-        console.log(`There's no winner! ${humanChoice} is ${computerChoice}`);
+        result.textContent = `There's no winner! ${humanChoice} is ${computerChoice}`;
     } 
     else if (humanChoice == 'Rock') {
         if (computerChoice == 'Scissors') {
-            console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+            result.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
             humanScore++;
         }
         else {
-            console.log(`You lose! ${humanChoice} loses from ${computerChoice}`);
+            result.textContent = `You lose! ${humanChoice} loses from ${computerChoice}`;
             computerScore++;
         }
     }
     else if (humanChoice == 'Paper') {
         if (computerChoice == 'Rock') {
-            console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+            result.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
             humanScore++;
         }
         else {
-            console.log(`You lose! ${humanChoice} loses from ${computerChoice}`);
+            result.textContent = `You lose! ${humanChoice} loses from ${computerChoice}`;
             computerScore++;
         }
     }
     else if (humanChoice == 'Scissors') {
         if (computerChoice == 'Paper') {
-            console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+            result.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
             humanScore++;
         }
         else {
-            console.log(`You lose! ${humanChoice} loses from ${computerChoice}`);
+            result.textContent = `You lose! ${humanChoice} loses from ${computerChoice}`;
             computerScore++;
         }
     }
+    score.textContent = `Score is Human: ${humanScore} - Computer: ${computerScore}`;
+    if (humanScore == 5) {
+        win.textContent = "Human wins!";
+    }
+    if (computerScore == 5) {
+        win.textContent = "Computer wins!";
+    }
 }
+
+const buttons = document.querySelectorAll(".button");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const humanChoice = button.id;
+        const computerChoice = getComputerChoice();
+        playRound(humanChoice, computerChoice);
+    });
+});
+
+
+
 
 //Create function PlayGame named playGame with no parameters
 /* function playGame() {
